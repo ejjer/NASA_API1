@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/NASA_API/app/src/main/res/drawable/my_selector_backgroundchip.xml" value="0.1" />
         <entry key="..\:/NASA_API/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/NASA_API/app/src/main/res/layout/fragment_picture_of_the_day.xml" value="0.184375" />
       </map>
