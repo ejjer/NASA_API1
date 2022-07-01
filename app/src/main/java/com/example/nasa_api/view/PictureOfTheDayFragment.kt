@@ -1,5 +1,7 @@
 package com.example.nasa_api.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -43,6 +45,11 @@ class PictureOfTheDayFragment : Fragment() {
 
 
         click()
+        binding.textInputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputText.text.toString()}")
+            })
+        }
 
 
     }
@@ -78,6 +85,13 @@ class PictureOfTheDayFragment : Fragment() {
         binding.chipDayBeforeYesterday.setOnClickListener {
             Toast.makeText(requireContext(), "chipDayBeforeYesterday", Toast.LENGTH_SHORT).show()
         }
+
+//        binding.inputText.setOnIcon {
+//            startActivity(Intent(Intent.ACTION_VIEW).apply {
+//                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputText.text.toString()}")
+//            })
+//        }
+
 
 
     }

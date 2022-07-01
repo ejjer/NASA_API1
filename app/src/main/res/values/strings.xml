@@ -6,4 +6,6 @@
     <string name="today">Todey</string>
     <string name="yesterday">Yesterday</string>
     <string name="day_before_yesterday">Day before yesterday</string>
+    <string name="wiki_helper_text">Wiki helper text</string>
+    <string name="hint">Hint</string>
 </resources>
