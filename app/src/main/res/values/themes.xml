@@ -5,7 +5,6 @@
         <item name="windowNoTitle">true</item>
 
 
-
         <item name="colorPrimary">#17075E</item>
         <item name="colorOnSurface">#533FAB</item>
         <item name="colorOnSurfaceVariant">#290CAB</item>
@@ -18,12 +17,14 @@
 
     <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
 
-        <!--  <item name="chipBackgroundColor">@drawable/my_selector_background_chip</item> -->
-         <item name="rippleColor">#533FAB</item>
+        <item name="chipBackgroundColor">@drawable/my_selector_background_chip</item>
+        <item name="rippleColor">#533FAB</item>
 
-     </style>
+    </style>
+
     <style name="MyTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
 
-        <item name="helperTextTextColor">#3A2C78</item>
+        <item name="helperTextTextColor">@color/helperTextColor</item>
+        <item name="counterOverflowTextColor">@color/helperTextColor</item>
     </style>
- </resources>
+</resources>

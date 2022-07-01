@@ -1,6 +1,5 @@
 package com.example.nasa_api.ViewModel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nasa_api.BuildConfig

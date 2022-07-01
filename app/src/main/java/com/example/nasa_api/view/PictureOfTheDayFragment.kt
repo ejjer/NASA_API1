@@ -45,11 +45,7 @@ class PictureOfTheDayFragment : Fragment() {
 
 
         click()
-        binding.textInputLayout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputText.text.toString()}")
-            })
-        }
+
 
 
     }
@@ -86,11 +82,11 @@ class PictureOfTheDayFragment : Fragment() {
             Toast.makeText(requireContext(), "chipDayBeforeYesterday", Toast.LENGTH_SHORT).show()
         }
 
-//        binding.inputText.setOnIcon {
-//            startActivity(Intent(Intent.ACTION_VIEW).apply {
-//                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputText.text.toString()}")
-//            })
-//        }
+        binding.textInputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputText.text.toString()}")
+            })
+        }
 
 
 
