@@ -43,9 +43,7 @@ class PictureOfTheDayFragment : Fragment() {
         }
         viewModel.sendRequest()
 
-
         click()
-
 
 
     }
@@ -84,10 +82,10 @@ class PictureOfTheDayFragment : Fragment() {
 
         binding.textInputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputText.text.toString()}")
+                data =
+                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputText.text.toString()}")
             })
         }
-
 
 
     }

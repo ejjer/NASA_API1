@@ -1,30 +1,90 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+
+    >
     <style name="Theme.NASA_API" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
 
-        <item name="colorPrimary">#17075E</item>
-        <item name="colorOnSurface">#533FAB</item>
-        <item name="colorOnSurfaceVariant">#290CAB</item>
-        <item name="colorOnSecondaryContainer">#3A2C78</item>
-        <item name="colorPrimaryContainer">#17075E</item>
-        <item name="chipStyle">@style/MyChipStyle</item>
-        <item name="textInputStyle">@style/MyTextInputLayoutStyle</item>
-        <item name="colorSurface">#3B11F7</item>
+
+    </style>
+    
+    <style name="BlueTheme" parent="Theme.NASA_API">
+        <item name="mainColor">#3B11F7</item>
+
+        <item name="colorPrimary">#3B11F7</item>
+        <item name="colorOnPrimary">#5E587A</item>
+        <item name="colorPrimaryContainer">#2F0EC4</item>
+        <item name="colorOnPrimaryContainer">#795CF9</item>
+        <item name="colorPrimaryInverse">#1D0878</item>
+        <item name="colorSecondary">#795CF9</item>
+        <item name="colorOnSecondary">#795CF9</item>
+        <item name="colorOnSecondaryContainer">#1D0878</item>
+        <item name="colorTertiary">#2F0EC4</item>
+        <item name="colorOnTertiary">#2F0EC4</item>
+        <item name="colorTertiaryContainer">#2F0EC4</item>
+        <item name="colorOnTertiaryContainer">#2F0EC4</item>
+        <item name="colorError">#2F0EC4</item>
+        <item name="colorOnError">#2F0EC4</item>
+        <item name="colorErrorContainer">#2F0EC4</item>
+        <item name="colorOnErrorContainer">#2F0EC4</item>
+        <item name="colorOutline">#2F0EC4</item>
+        <item name="android:colorBackground">#1D0878</item>
+        <item name="colorOnBackground">#1D0878</item>
+        <item name="colorSurface">#80795CF9</item><!--цвет чипов  -->
+        <item name="colorOnSurface">#1D0878</item><!--цвет текста   -->
+        <item name="colorSurfaceVariant">#2F0EC4</item>
+        <item name="colorOnSurfaceVariant">#2F0EC4</item>
+        <item name="colorSurfaceInverse">#1D0878</item>
+        <item name="colorOnSurfaceInverse">#1D0878</item>
+
+    </style>
+    <style name="GreenTheme" parent="Theme.NASA_API">
+        <item name="mainColor">#5E9F07</item>
+        <item name="backgroundColor">#FFCDEDA4</item>
+
+
+
+        <item name="colorPrimary">#5E9F07</item>
+        <item name="colorOnPrimary">#5E9F07</item>
+        <item name="colorPrimaryContainer">#3F6B04</item>
+        <item name="colorOnPrimaryContainer">#3F6B04</item>
+        <item name="colorPrimaryInverse">#5E9F07</item>
+        <item name="colorSecondary">#CDEDA4</item>
+        <item name="colorOnSecondary">#CDEDA4</item>
+        <item name="colorOnSecondaryContainer">#3F6B04</item>
+        <item name="colorTertiary">#7CAE3B</item>
+        <item name="colorOnTertiary">#7CAE3B</item>
+        <item name="colorTertiaryContainer">#7CAE3B</item>
+        <item name="colorOnTertiaryContainer">#7CAE3B</item>
+        <item name="colorError">#7CAE3B</item>
+        <item name="colorOnError">#7CAE3B</item>
+        <item name="colorErrorContainer">#7CAE3B</item>
+        <item name="colorOnErrorContainer">#7CAE3B</item>
+        <item name="colorOutline">#7CAE3B</item>
+        <item name="android:colorBackground">#3F6B04</item>
+        <item name="colorOnBackground">#3F6B04</item>
+        <item name="colorSurface">#807CAE3B</item><!--цвет чипов  -->
+        <item name="colorOnSurface">#3F6B04</item><!--цвет текста   -->
+        <item name="colorSurfaceVariant">#7CAE3B</item>
+        <item name="colorOnSurfaceVariant">#7CAE3B</item>
+        <item name="colorSurfaceInverse">#3F6B04</item>
+        <item name="colorOnSurfaceInverse">#3F6B04</item>
+
+
     </style>
 
     <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
 
-        <item name="chipBackgroundColor">@drawable/my_selector_background_chip</item>
-        <item name="rippleColor">#533FAB</item>
+        <!-- <item name="chipBackgroundColor">@drawable/my_selector_background_chip</item>-->
+         <item name="rippleColor">#533FAB</item>
 
-    </style>
+     </style>
 
-    <style name="MyTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+     <style name="MyTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
 
-        <item name="helperTextTextColor">@color/helperTextColor</item>
-        <item name="counterOverflowTextColor">@color/helperTextColor</item>
-    </style>
-</resources>
+         <item name="helperTextTextColor">@color/helperTextColor</item>
+         <item name="counterOverflowTextColor">@color/helperTextColor</item>
+     </style>
+ </resources>
