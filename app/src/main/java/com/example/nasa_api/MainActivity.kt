@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.GreenTheme)
+        setTheme(R.style.BlueTheme)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, PictureOfTheDayFragment.newInstance())
                 .commit()
         }
+
 
     }
 }
