@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/NASA_API/app/src/main/res/drawable/ic_baseline_dehaze_24.xml" value="0.119" />
+        <entry key="..\:/NASA_API/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.119" />
+        <entry key="..\:/NASA_API/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1" />
+        <entry key="..\:/NASA_API/app/src/main/res/drawable/my_selector_background_chip.xml" value="0.1785" />
+        <entry key="..\:/NASA_API/app/src/main/res/drawable/my_selector_backgroundchip.xml" value="0.1" />
         <entry key="..\:/NASA_API/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/NASA_API/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.14130434782608695" />
         <entry key="..\:/NASA_API/app/src/main/res/layout/fragment_picture_of_the_day.xml" value="0.184375" />
+        <entry key="..\:/NASA_API/app/src/main/res/layout/fragment_settings.xml" value="0.22" />
+        <entry key="..\:/NASA_API/app/src/main/res/menu/bottom_app_bar.xml" value="0.1403091557669441" />
+        <entry key="..\:/NASA_API/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.184375" />
       </map>
     </option>
   </component>
