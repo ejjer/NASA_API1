@@ -1,20 +1,21 @@
-package com.example.nasa_api.view
+package com.example.nasa_api.view.picture
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import com.example.nasa_api.MainActivity
 import com.example.nasa_api.R
 import com.example.nasa_api.ViewModel.AppState
 import com.example.nasa_api.ViewModel.PictureOfTheDayViewModel
 import com.example.nasa_api.databinding.FragmentPictureOfTheDayBinding
+import com.example.nasa_api.view.drawer.BottomNavigationDrawerFragment
+import com.example.nasa_api.view.picture.PictureOfTheDayFragment.Companion.newInstance
+import com.example.nasa_api.view.settings.SettingsFragment
 
 
 class PictureOfTheDayFragment : Fragment() {
@@ -36,6 +37,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.getLiveData().observe(
             viewLifecycleOwner
         ) { appState ->
@@ -46,6 +48,32 @@ class PictureOfTheDayFragment : Fragment() {
         click()
 
 
+        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
+        setHasOptionsMenu(true)   }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.bottom_app_bar,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.app_bar_settings->{requireActivity()
+                .supportFragmentManager
+                .beginTransaction()
+                .hide(this)
+                .add(R.id.container,SettingsFragment.newInstance())
+                .addToBackStack("")
+                .commit()}
+            R.id.app_bar_fav->{}
+            android.R.id.home -> {
+                activity?.let {
+                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun renderData(appState: AppState?) {
