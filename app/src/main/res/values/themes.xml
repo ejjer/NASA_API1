@@ -25,8 +25,8 @@
         <item name="textAppearanceBody2">@style/MyTextAppearanceBody2</item>
         <item name="mainColor">#3B11F7</item>
 
-        <item name="colorPrimary">#3B11F7</item>
-        <item name="colorOnPrimary">#5E587A</item>
+        <item name="colorPrimary">#2F0EC4</item>
+        <item name="colorOnPrimary">#2F0EC4</item>
         <item name="colorPrimaryContainer">#2F0EC4</item>
         <item name="colorOnPrimaryContainer">#795CF9</item>
         <item name="colorSecondary">#795CF9</item>
