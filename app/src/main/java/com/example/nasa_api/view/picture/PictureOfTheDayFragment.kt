@@ -48,8 +48,7 @@ class PictureOfTheDayFragment : Fragment() {
         click()
 
 
-        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
-        setHasOptionsMenu(true)   }
+           }
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -97,16 +96,16 @@ class PictureOfTheDayFragment : Fragment() {
         _binding = null
     }
 
-    fun click() {
-        binding.chipToday.setOnClickListener {
-            Toast.makeText(requireContext(), "chipToday", Toast.LENGTH_SHORT).show()
-        }
-        binding.chipYesterday.setOnClickListener {
-            Toast.makeText(requireContext(), "chipYesterday", Toast.LENGTH_SHORT).show()
-        }
-        binding.chipDayBeforeYesterday.setOnClickListener {
-            Toast.makeText(requireContext(), "chipDayBeforeYesterday", Toast.LENGTH_SHORT).show()
-        }
+   fun click() {
+//        binding.chipToday.setOnClickListener {
+//            Toast.makeText(requireContext(), "chipToday", Toast.LENGTH_SHORT).show()
+//        }
+//        binding.chipYesterday.setOnClickListener {
+//            Toast.makeText(requireContext(), "chipYesterday", Toast.LENGTH_SHORT).show()
+//        }
+//        binding.chipDayBeforeYesterday.setOnClickListener {
+//            Toast.makeText(requireContext(), "chipDayBeforeYesterday", Toast.LENGTH_SHORT).show()
+//        }
 
         binding.textInputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {

@@ -13,4 +13,7 @@
     <string name="home">Home</string>
     <string name="greenThemes">Green Themes</string>
     <string name="blueThemes">Blue Themes</string>
+    <string name="earth">Earth</string>
+    <string name="mars">Mars</string>
+    <string name="system">System</string>
 </resources>
