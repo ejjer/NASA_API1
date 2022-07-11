@@ -31,7 +31,6 @@ class BottomBarActivity : AppCompatActivity() {
         }
         binding.bottomNavigationView.selectedItemId =  R.id.action_view_earth
 
-
     }
 
     private fun navigateTo(fragment: Fragment) {
