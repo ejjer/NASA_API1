@@ -83,7 +83,7 @@ class SettingsFragment : Fragment() {
                 }
 
                 override fun onTabReselected(tab: TabLayout.Tab?) {
-                    TODO("Not yet implemented")
+                    //TODO("Not yet implemented")
                 }
             })
         }
