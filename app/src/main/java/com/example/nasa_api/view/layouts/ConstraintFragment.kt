@@ -26,6 +26,8 @@ class ConstraintFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.group1.visibility = View.GONE
+
 
     }
     companion object {
