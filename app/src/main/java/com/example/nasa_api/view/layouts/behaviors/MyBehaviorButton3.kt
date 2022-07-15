@@ -31,4 +31,5 @@ class MyBehaviorButton3(context: Context, attrs: AttributeSet?=null): Coordinato
         }
         return super.onDependentViewChanged(parent, child, dependency)
     }
+
 }
