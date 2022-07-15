@@ -1,38 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbarLayout"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?colorAccent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior=".view.layouts.behaviors.NestedBehavior"
+        tools:context=".ScrollingActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/large_text" />
+
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn1"
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
         android:textColor="@color/white"
         app:layout_anchorGravity="bottom|end"
-        app:layout_behavior=".view.layouts.behaviors.MyBehavior"/>
+        app:layout_behavior=".view.layouts.behaviors.ButtonBehavior" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        android:textColor="@color/white"
-        app:layout_anchor="@+id/btn1"
-        app:layout_behavior=".view.layouts.behaviors.MyBehaviorButton2"
-         />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3"
-        android:textColor="@color/white"
-        app:layout_anchor="@+id/btn2"
-        app:layout_anchorGravity="bottom|end"
-        app:layout_behavior=".view.layouts.behaviors.MyBehaviorButton3"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomSheetContainer"
@@ -42,6 +63,7 @@
         app:behavior_hideable="true"
         app:behavior_peekHeight="50dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
         <View
             android:id="@+id/bottomSheetLine"
             android:layout_width="25dp"
@@ -64,7 +86,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bottomSheetLine"
-            tools:text="Two Clusters and a Comet"/>
+            tools:text="Two Clusters and a Comet" />
 
         <TextView
             android:id="@+id/bottomSheetDescription"

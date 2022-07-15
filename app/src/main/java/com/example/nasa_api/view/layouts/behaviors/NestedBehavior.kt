@@ -5,27 +5,29 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.widget.NestedScrollView
 import com.example.nasa_api.R
+import com.google.android.material.appbar.AppBarLayout
 
-class MyBehavior(context: Context, attrs: AttributeSet?=null): CoordinatorLayout.Behavior<View>(context,attrs){
+class NestedBehavior(context: Context, attrs: AttributeSet?=null): CoordinatorLayout.Behavior<NestedScrollView>(context,attrs){
 
     override fun layoutDependsOn(
         parent: CoordinatorLayout,
-        child: View,
+        child: NestedScrollView,
         dependency: View
     ): Boolean {
-        return (dependency.id == R.id.bottomSheetContainer)
+        return dependency is AppBarLayout
 
     }
 
     override fun onDependentViewChanged(
         parent: CoordinatorLayout,
-        child: View,
+        child: NestedScrollView,
         dependency: View
     ): Boolean {
-        if(dependency.id == R.id.bottomSheetContainer){
+        if(dependency is AppBarLayout){
             Log.d("@@@","${dependency.y} ${dependency.height}")
-            child.y = dependency.y - 300
+            child.y =dependency.y +dependency.height
         }
         return super.onDependentViewChanged(parent, child, dependency)
     }
