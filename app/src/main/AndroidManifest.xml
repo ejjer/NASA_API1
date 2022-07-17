@@ -42,6 +42,13 @@
         <activity
             android:name="com.example.nasa_api.view.layouts.LayoutsActivity"
             android:exported="true">
+
+
+
+        </activity>
+        <activity
+            android:name="com.example.nasa_api.view.animation.AnimationActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
