@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.Explode
-import androidx.transition.Transition
-import androidx.transition.TransitionManager
+import androidx.transition.*
 import com.example.nasa_api.R
 import com.example.nasa_api.databinding.ActivityAnimationBinding
 
@@ -27,53 +27,37 @@ class AnimationActivity : AppCompatActivity() {
         binding = ActivityAnimationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        isFlag = !isFlag
-
-
-        binding.recyclerView.adapter=Adapter()
 
 
 
+        binding.imageView.setOnClickListener {
+            isFlag = !isFlag
 
+            val params = it.layoutParams as LinearLayout.LayoutParams
 
-    }
+            val transitionSet = TransitionSet()
+            val changeImageTransform = ChangeImageTransform()
+            val changeBounds = ChangeBounds()
 
-    inner class Adapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+            transitionSet.addTransition(changeBounds)
+            transitionSet.addTransition(changeImageTransform)
 
-            return MyViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.activity_animation_explode_recycler_view_item,
-                    parent,
-                false
-                ) as View
-            )
+            changeBounds.duration = 1000L
+            changeImageTransform.duration = 1000L
 
-        }
-
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
-            holder.itemView.setOnClickListener{
-
-                val rect = Rect()
-                it.getGlobalVisibleRect(rect)
-                val explode = Explode()
-                explode.duration = 1500L
-                explode.epicenterCallback = object : Transition.EpicenterCallback(){
-                    override fun onGetEpicenter(transition: Transition): Rect {
-                       return rect
-                    }
-                }
-                TransitionManager.beginDelayedTransition(binding.recyclerView,explode)
-                binding.recyclerView.adapter = null
-
+            TransitionManager.beginDelayedTransition(binding.root, transitionSet)
+            if (isFlag) {
+                params.height = LinearLayout.LayoutParams.MATCH_PARENT
+                (it as ImageView).scaleType = ImageView.ScaleType.CENTER_CROP
+            } else {
+                params.height = LinearLayout.LayoutParams.WRAP_CONTENT
+                (it as ImageView).scaleType = ImageView.ScaleType.CENTER_INSIDE
             }
+            it.layoutParams = params
+
+
         }
 
-        override fun getItemCount(): Int {
-            return 32
-        }
 
-       inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {}
     }
 }
