@@ -4,22 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:fitsSystemWindows="true"
     android:id="@+id/transitions_container">
 
- <androidx.appcompat.widget.AppCompatButton
-     android:id="@+id/button"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_gravity="center"
-     android:text="@string/animation"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"
-        android:layout_gravity="center"
-        android:text="@string/transitions_example"/>
+ <androidx.recyclerview.widget.RecyclerView
+     xmlns:app = "http://schemas.android.com/apk/res-auto"
+     android:id="@+id/recyclerView"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+     app:spanCount="4"/>
 
 </LinearLayout>

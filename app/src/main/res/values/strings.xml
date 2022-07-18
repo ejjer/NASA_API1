@@ -110,4 +110,5 @@
     </string>
     <string name="animation">Animation</string>
     <string name="transitions_example">Transitions example</string>
+    <string name="tap_on_me">TAP ON ME</string>
 </resources>
