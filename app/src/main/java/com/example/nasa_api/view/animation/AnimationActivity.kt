@@ -67,6 +67,7 @@ class AnimationActivity : AppCompatActivity() {
                 )
 
             }
+
             else{
                 ObjectAnimator.ofFloat(binding.plusImageView,View.ROTATION,675f,0f).setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer,View.TRANSLATION_Y,0f).setDuration(duration).start()
