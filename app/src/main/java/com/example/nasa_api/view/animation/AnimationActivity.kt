@@ -76,6 +76,7 @@ class AnimationActivity : AppCompatActivity() {
 
                 binding.optionOneContainer.animate().alpha(0f).setDuration(duration).setListener(
 
+
                     object : AnimatorListenerAdapter(){
                         override fun onAnimationEnd(animation: Animator?) {
                             binding.optionOneContainer.isClickable = false
