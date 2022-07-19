@@ -116,4 +116,6 @@
     <string name="opteion1">Opteion 1</string>
     <string name="option1">Option 1</string>
     <string name="option2">Option 2</string>
+    <string name="stateListAnimatorExample">State List Animator Example</string>
+    <string name="stataListAnimatorExample">Stata List Animator Example</string>
 </resources>
