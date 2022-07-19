@@ -1,16 +1,17 @@
 package com.example.nasa_api.view.animation
 
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.view.animation.Animation
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,8 @@ import com.example.nasa_api.databinding.ActivityAnimationBinding
 class AnimationActivity : AppCompatActivity() {
 
 
-    var isFlag = true
+    var isFlag = false
+    var duration = 1000L
 
     private lateinit var binding: ActivityAnimationBinding
 
@@ -37,19 +39,60 @@ class AnimationActivity : AppCompatActivity() {
             titles.add("Item $i")
         }
 
-        binding.button.setOnClickListener {
+        binding.fab.setOnClickListener {
             isFlag = !isFlag
-            TransitionManager.beginDelayedTransition(binding.root)
-            binding.transitionsContainer.removeAllViews()
-            titles.shuffle()
-            titles.forEach {
-                binding.transitionsContainer.addView(TextView(this).apply {
-                    text = it
-                    ViewCompat.setTransitionName(this,it)
-                })
+            if (isFlag){
+                ObjectAnimator.ofFloat(binding.plusImageView,View.ROTATION,0f,675f).setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.optionOneContainer,View.TRANSLATION_Y,-225f).setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.optionTwoContainer,View.TRANSLATION_Y,-130f).setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.transparentBackground,View.ALPHA,0.5f).setDuration(duration).start()
+
+                binding.optionOneContainer.animate().alpha(1f).setDuration(duration).setListener(
+
+                    object : AnimatorListenerAdapter(){
+                        override fun onAnimationEnd(animation: Animator?) {
+                            binding.optionOneContainer.isClickable = true
+                        }
+                    }
+
+                )
+                binding.optionTwoContainer.animate().alpha(1f).setDuration(duration).setListener(
+
+                    object : AnimatorListenerAdapter(){
+                        override fun onAnimationEnd(animation: Animator?) {
+                            binding.optionTwoContainer.isClickable = true
+                        }
+                    }
+
+                )
+
             }
+            else{
+                ObjectAnimator.ofFloat(binding.plusImageView,View.ROTATION,675f,0f).setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.optionOneContainer,View.TRANSLATION_Y,0f).setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.optionTwoContainer,View.TRANSLATION_Y,0f).setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.transparentBackground,View.ALPHA,0f).setDuration(duration).start()
 
+                binding.optionOneContainer.animate().alpha(0f).setDuration(duration).setListener(
 
+                    object : AnimatorListenerAdapter(){
+                        override fun onAnimationEnd(animation: Animator?) {
+                            binding.optionOneContainer.isClickable = false
+                        }
+                    }
+
+                )
+                binding.optionTwoContainer.animate().alpha(0f).setDuration(duration).setListener(
+
+                    object : AnimatorListenerAdapter(){
+                        override fun onAnimationEnd(animation: Animator?) {
+                            binding.optionTwoContainer.isClickable = false
+                        }
+                    }
+
+                )
+
+            }
         }
 
 

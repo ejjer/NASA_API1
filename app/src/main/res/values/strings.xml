@@ -113,4 +113,7 @@
     <string name="tap_on_me">TAP ON ME</string>
     <string name="path">Path</string>
     <string name="shuffle">SHUFFLE</string>
+    <string name="opteion1">Opteion 1</string>
+    <string name="option1">Option 1</string>
+    <string name="option2">Option 2</string>
 </resources>
