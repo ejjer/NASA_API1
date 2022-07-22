@@ -118,4 +118,8 @@
     <string name="option2">Option 2</string>
     <string name="stateListAnimatorExample">State List Animator Example</string>
     <string name="stataListAnimatorExample">Stata List Animator Example</string>
+    <string name="earth_rus">Земля</string>
+    <string name="large_text_mars">Марс -- четвёртая по удалённости от Солнца и седьмая по размерам планета Солнечной системы. Названа в честь Марса -- древнеримского бога войны, соответствующего древнегреческому Аресу. Иногда Марс называют «красной планетой» из-за красноватого оттенка поверхности, придаваемого ей минералом маггемитом (оксидом железа).</string>
+    <string name="mars_rus">Марс</string>
+    <string name="header">Заголовок</string>
 </resources>
