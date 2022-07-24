@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="fragment_padding_iv">5dp</dimen>
+    <dimen name="TextInputLayoutMarginTop">8dp</dimen>
+    <dimen name="TextInputLayoutMarginBottom">8dp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="MyImageViewMarginTop">8dp</dimen>
+    <dimen name="FloatingActionButtonMarginEnd">8dp</dimen>
+    <dimen name="FloatingActionButtonMarginBottom">8dp</dimen>
 </resources>
