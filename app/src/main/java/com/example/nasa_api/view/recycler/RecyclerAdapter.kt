@@ -3,31 +3,34 @@ package com.example.nasa_api.view.recycler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.nasa_api.R
+
 import com.example.nasa_api.databinding.ActivityRecyclerItemEarthBinding
 import com.example.nasa_api.databinding.ActivityRecyclerItemHeaderBinding
 import com.example.nasa_api.databinding.ActivityRecyclerItemMarsBinding
 
 
 class RecyclerAdapter(
-    private var listData: MutableList<Data>,
+    private var listData: MutableList<Pair<Data,Boolean>>,
     val callbackAdd: AddItem,
     val callbackRemove: RemoveItem
-) : RecyclerView.Adapter<RecyclerAdapter.BaseViewHolder>() {
+) : RecyclerView.Adapter<RecyclerAdapter.BaseViewHolder>(),ItemTouchHelperAdapter {
 
 
-    fun setListDataRemove(listDataNew: MutableList<Data>, position: Int) {
+    fun setListDataRemove(listDataNew: MutableList<Pair<Data,Boolean>>, position: Int) {
         listData = listDataNew
         notifyItemRemoved(position)
     }
 
-    fun setListDataAdd(listDataNew: MutableList<Data>, position: Int) {
+    fun setListDataAdd(listDataNew: MutableList<Pair<Data,Boolean>>, position: Int) {
         listData = listDataNew
         notifyItemInserted(position)
     }
 
     override fun getItemViewType(position: Int): Int {
-        return listData[position].type
+        return listData[position].first.type
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
@@ -63,9 +66,9 @@ class RecyclerAdapter(
     }
 
     inner class MarsViewHolder(val binding: ActivityRecyclerItemMarsBinding) :
-        BaseViewHolder(binding.root) {
-        override fun bind(data: Data) {
-            binding.name.text = data.name
+        BaseViewHolder(binding.root),ItemTouchHelperViewHolder {
+        override fun bind(data: Pair<Data,Boolean>) {
+            binding.name.text = data.first.name
 
             binding.addItemImageView.setOnClickListener {
                 callbackAdd.add(layoutPosition)
@@ -89,6 +92,23 @@ class RecyclerAdapter(
                 }
                 notifyItemMoved(layoutPosition, layoutPosition + 1)
             }
+            binding.marsDescriptionTextView.visibility = if(listData[layoutPosition].second)View.VISIBLE else View.GONE
+            binding.marsImageView.setOnClickListener{
+                listData[layoutPosition] = listData[layoutPosition].let{
+                    it.first to !it.second
+                }
+
+                notifyItemChanged(layoutPosition)
+            }
+
+        }
+
+        override fun onItemSelect() {
+            binding.root.setBackgroundColor(ContextCompat.getColor(binding.root.context,R.color.Grey))
+        }
+
+        override fun onItemClear() {
+            binding.root.setBackgroundColor(0)
 
         }
     }
@@ -96,22 +116,34 @@ class RecyclerAdapter(
 
     class EarthViewHolder(val binding: ActivityRecyclerItemEarthBinding) :
         BaseViewHolder(binding.root) {
-        override fun bind(data: Data) {
-            binding.name.text = data.name
+        override fun bind(data: Pair<Data,Boolean>) {
+            binding.name.text = data.first.name
         }
     }
 
 
     class HeaderViewHolder(val binding: ActivityRecyclerItemHeaderBinding) :
         BaseViewHolder(binding.root) {
-        override fun bind(data: Data) {
-            binding.name.text = data.name
+        override fun bind(data: Pair<Data,Boolean>) {
+            binding.name.text = data.first.name
         }
     }
 
     abstract class BaseViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
-        abstract fun bind(data: Data)
+        abstract fun bind(data: Pair<Data,Boolean>)
     }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        listData.removeAt(fromPosition).apply {
+            listData.add(toPosition, this)
+        }
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemDismiss(position: Int) {
+        callbackRemove.remove(position)
+    }
+
 
 }

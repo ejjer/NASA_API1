@@ -15,4 +15,5 @@
     <color name="blueAppBarColor">#3B11F7</color>
     <color name="BlueTabIndicatorColor">#2F0EC4</color>
     <color name="GreenTabIndicatorColor">#3F6B04</color>
+    <color name="Grey">#757575</color>
 </resources>
