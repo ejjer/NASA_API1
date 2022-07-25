@@ -3,13 +3,15 @@ package com.example.nasa_api.view.recycler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nasa_api.R
-
 import com.example.nasa_api.databinding.ActivityRecyclerItemEarthBinding
 import com.example.nasa_api.databinding.ActivityRecyclerItemHeaderBinding
 import com.example.nasa_api.databinding.ActivityRecyclerItemMarsBinding
+import com.example.nasa_api.view.recycler.diffUttil.DiffUtilCallback
 
 
 class RecyclerAdapter(
@@ -19,7 +21,13 @@ class RecyclerAdapter(
 ) : RecyclerView.Adapter<RecyclerAdapter.BaseViewHolder>(),ItemTouchHelperAdapter {
 
 
-    fun setListDataRemove(listDataNew: MutableList<Pair<Data,Boolean>>, position: Int) {
+    fun setListDataForDiffUtil(listDataNew: MutableList<Pair<Data,Boolean>>) {
+        val diff = DiffUtil.calculateDiff(DiffUtilCallback(listData, listDataNew))
+        diff.dispatchUpdatesTo(this)
+        listData= listDataNew
+    }
+
+    fun setListDataRemove(listDataNew: MutableList<Pair<Data, Boolean>>, position: Int) {
         listData = listDataNew
         notifyItemRemoved(position)
     }
@@ -59,6 +67,20 @@ class RecyclerAdapter(
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.bind(listData[position])
+    }
+
+    override fun onBindViewHolder(
+        holder: BaseViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+        if (payloads.isEmpty()) {
+            super.onBindViewHolder(holder, position, payloads)
+        } else {
+            val createCombinedPayload = createCombinedPayload(payloads as List<Change<Pair<Data, Boolean>> >)
+            if(createCombinedPayload.newData.first.name!=createCombinedPayload.oldData.first.name) 
+                holder.itemView.findViewById<TextView>(R.id.name).text =createCombinedPayload.newData.first.name
+        }
     }
 
     override fun getItemCount(): Int {

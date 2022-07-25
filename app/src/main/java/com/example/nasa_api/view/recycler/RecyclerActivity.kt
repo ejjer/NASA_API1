@@ -15,14 +15,14 @@ class RecyclerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecyclerBinding
 
     private val data = arrayListOf(
-        Pair(Data("Заголовок", type = TYPE_HEADER), false),
-        Pair(Data("Earth", type = TYPE_EARTH), false),
-        Pair(Data("Earth", type = TYPE_EARTH), false),
-        Pair(Data("Mars", type = TYPE_MARS), false),
-        Pair(Data("Earth", type = TYPE_EARTH), false),
-        Pair(Data("Earth", type = TYPE_EARTH), false),
-        Pair(Data("Earth", type = TYPE_EARTH), false),
-        Pair(Data("Mars", type = TYPE_MARS), false)
+        Pair(Data(id=0,"Заголовок", type = TYPE_HEADER), false),
+        Pair(Data(id=1,"Earth", type = TYPE_EARTH), false),
+        Pair(Data(id=2,"Earth", type = TYPE_EARTH), false),
+        Pair(Data(id=3,"Mars", type = TYPE_MARS), false),
+        Pair(Data(id=4,"Earth", type = TYPE_EARTH), false),
+        Pair(Data(id=5,"Earth", type = TYPE_EARTH), false),
+        Pair(Data(id=6,"Earth", type = TYPE_EARTH), false),
+        Pair(Data(id=7,"Mars", type = TYPE_MARS), false)
     )
     lateinit var adapter: RecyclerAdapter
 
@@ -46,7 +46,7 @@ class RecyclerActivity : AppCompatActivity() {
     }
 
     private val callbackAdd = AddItem {
-        data.add(it, Pair(Data("Mars(New)", type = TYPE_MARS),false))
+        data.add(it, Pair(Data(0,"Mars(New)", type = TYPE_MARS),false))
         adapter.setListDataAdd(data, it)
     }
     private val callbackRemoveItem = RemoveItem {
