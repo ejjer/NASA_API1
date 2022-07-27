@@ -8,41 +8,7 @@
     android:background="@color/white"
     tools:context=".view.picture.PictureOfTheDayFragment">
 
-    <!--   <com.google.android.material.chip.ChipGroup
-          android:id="@+id/chipGroup"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="12dp"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:singleSelection="true">
 
-          <com.google.android.material.chip.Chip
-              android:id="@+id/chip_today"
-              style="@style/Widget.MaterialComponents.Chip.Choice"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/today"
-              android:textColor="@color/white" />
-
-          <com.google.android.material.chip.Chip
-              android:id="@+id/chip_yesterday"
-              style="@style/Widget.MaterialComponents.Chip.Choice"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/yesterday"
-              android:textColor="@color/white" />
-
-
-          <com.google.android.material.chip.Chip
-              android:id="@+id/chip_day_before_yesterday"
-              style="@style/Widget.MaterialComponents.Chip.Choice"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/day_before_yesterday"
-              android:textColor="@color/white" />
-      </com.google.android.material.chip.ChipGroup>-->
 
       <com.google.android.material.textfield.TextInputLayout
           android:id="@+id/text_input_layout"
@@ -74,6 +40,7 @@
       </com.google.android.material.textfield.TextInputLayout>
 
       <com.example.nasa_api.utils.MyImageView
+          android:visibility="gone"
           android:id="@+id/imageView"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -82,6 +49,16 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/text_input_layout" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/fragment_padding_iv"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:contentDescription="@string/photo_of_the_day_stub"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayout" />
 
     <!--  <com.google.android.material.bottomappbar.BottomAppBar
 

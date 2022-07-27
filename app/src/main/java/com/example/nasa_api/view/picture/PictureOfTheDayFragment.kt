@@ -1,6 +1,7 @@
 package com.example.nasa_api.view.picture
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
@@ -16,6 +17,8 @@ import com.example.nasa_api.databinding.FragmentPictureOfTheDayBinding
 import com.example.nasa_api.view.drawer.BottomNavigationDrawerFragment
 import com.example.nasa_api.view.picture.PictureOfTheDayFragment.Companion.newInstance
 import com.example.nasa_api.view.settings.SettingsFragment
+import com.example.nasa_api.Repository.PictureOfTheDayResponseData
+import java.lang.System.load
 
 
 class PictureOfTheDayFragment : Fragment() {
@@ -51,6 +54,8 @@ class PictureOfTheDayFragment : Fragment() {
            }
 
 
+
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.bottom_app_bar,menu)
@@ -75,15 +80,24 @@ class PictureOfTheDayFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun renderData(appState: AppState?) {
+
+    private fun renderData(appState: AppState) {
         when (appState) {
-            is AppState.Error -> {}
-            AppState.Loading -> {}
-            is AppState.Success -> {
-                binding.imageView.load(appState.pictureOfTheDayResponseData.url) //койл настроить загрузку изображений
+            is AppState.Error -> {
             }
+            AppState.Loading -> {
+            }
+            is AppState.Success -> {
+                binding.imageView.load(appState.pictureOfTheDayResponseData.url) {
+
+                }
+
+
+                binding.textView.text = appState.pictureOfTheDayResponseData.explanation
+                binding.textView.typeface = Typeface.createFromAsset(requireActivity().assets,"folder/az_Eret1.ttf")
         }
     }
+}
 
     companion object {
 
