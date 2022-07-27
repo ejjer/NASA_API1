@@ -1,12 +1,18 @@
 package com.example.nasa_api.view.picture
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.*
+import android.text.style.BulletSpan
+import android.text.style.ForegroundColorSpan
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.nasa_api.MainActivity
@@ -80,7 +86,7 @@ class PictureOfTheDayFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-
+    @SuppressLint("NewApi")
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Error -> {
@@ -96,7 +102,31 @@ class PictureOfTheDayFragment : Fragment() {
 
 
                 binding.textView.text = appState.pictureOfTheDayResponseData.explanation
+
                 binding.textView.typeface = Typeface.createFromAsset(requireActivity().assets,"folder/az_Eret1.ttf")
+
+                val spanned:Spanned
+                val spannableString:SpannableString
+                val spannableStringBuilder:SpannableStringBuilder
+
+                val bulletSpanOne = BulletSpan(20,ContextCompat.getColor(requireContext(),R.color.Grey))
+                val bulletSpanSecond = BulletSpan(20,ContextCompat.getColor(requireContext(),R.color.Grey))
+                ForegroundColorSpan(ContextCompat.getColor(requireContext(),R.color.Grey))
+
+                val text = "My text \nbullet one\nbullet two"
+
+                spannableString = SpannableString(text)
+
+                spannableString.setSpan(bulletSpanOne,9,20,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                spannableString.setSpan(bulletSpanSecond,21,spannableString.length,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                for (i in text.indices){
+                    if(text[i] == 't'){
+                        spannableString.setSpan(
+                            ForegroundColorSpan(ContextCompat.getColor(requireContext(),R.color.Grey)),
+                        i,i+1,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    }
+                }
+                binding.textView.text = text
         }
     }
 }
