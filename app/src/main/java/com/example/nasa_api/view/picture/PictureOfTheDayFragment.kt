@@ -93,6 +93,8 @@ class PictureOfTheDayFragment : Fragment() {
                 }
 
 
+
+
                 binding.textView.text = appState.pictureOfTheDayResponseData.explanation
                 binding.textView.typeface = Typeface.createFromAsset(requireActivity().assets,"folder/az_Eret1.ttf")
         }
