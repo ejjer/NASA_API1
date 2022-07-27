@@ -1,14 +1,16 @@
 package com.example.nasa_api.ViewModel
 
-import androidx.lifecycle.LiveData
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nasa_api.BuildConfig
+import com.example.nasa_api.MainActivity
 import com.example.nasa_api.Repository.PictureOfTheDayResponseData
 import com.example.nasa_api.Repository.RepositoryImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.coroutines.coroutineContext
 
 class PictureOfTheDayViewModel(private val liveData: MutableLiveData<AppState> = MutableLiveData()
                                ,private val repositoryImpl: RepositoryImpl=RepositoryImpl()):
@@ -39,8 +41,10 @@ class PictureOfTheDayViewModel(private val liveData: MutableLiveData<AppState> =
             response.body()!!
         }
 
-        override fun onFailure(call: Call<PictureOfTheDayResponseData>, t: Throwable) {
-           // TODO("Not yet implemented")
+        override fun onFailure(call: Call<PictureOfTheDayResponseData>, t: Throwable)  {
+            liveData.postValue(AppState.Error(IllegalStateException("error")))
         }
+
+
     }
-}
+    }

@@ -1,19 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.PictureOfTheDayFragment">
+    android:orientation="horizontal"
+    android:background="@color/white"
+    tools:context=".view.picture.PictureOfTheDayFragment">
 
-    <com.example.nasa_api.utils.MyImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
+
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/text_input_layout"
+          style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/TextInputLayoutMarginTop"
+          android:layout_marginBottom="@dimen/TextInputLayoutMarginBottom"
+          android:hint="@string/hint"
+          android:padding="@dimen/padding"
+          app:counterEnabled="true"
+          app:counterMaxLength="20"
+          app:endIconDrawable="@drawable/ic_baseline_search_24"
+          app:endIconMode="custom"
+          app:helperText="@string/wiki_helper_text"
+          app:layout_constraintBottom_toTopOf="@+id/imageView"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/chipGroup">
+
+          <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/input_text"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:fontFamily="@font/alike_angular">
+
+          </com.google.android.material.textfield.TextInputEditText>
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.example.nasa_api.utils.MyImageView
+          android:visibility="gone"
+          android:id="@+id/imageView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginTop="@dimen/MyImageViewMarginTop"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/text_input_layout" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="@dimen/fragment_padding_iv"
         android:layout_gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /> />
+        android:textSize="20sp"
+        android:contentDescription="@string/photo_of_the_day_stub"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayout" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--  <com.google.android.material.bottomappbar.BottomAppBar
+
+          android:id="@+id/bottomAppBar"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="bottom"
+          android:visibility="visible"
+          app:fabAlignmentMode="center"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:navigationIcon="@drawable/ic_baseline_dehaze_24"
+          />
+
+      <com.google.android.material.floatingactionbutton.FloatingActionButton
+          android:id="@+id/fab"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:visibility="visible"
+          app:layout_anchor="@id/bottomAppBar"
+          app:tint="#FFFFFF" />-->
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
