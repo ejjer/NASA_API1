@@ -7,7 +7,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-
     </style>
 
     <style name="MyTextAppearanceBody2" parent="TextAppearance.MaterialComponents.Body2">
@@ -43,13 +42,9 @@
         <item name="colorOnSurface">#4D795CF9</item><!--цвет текста   -->
 
 
-
-
-
         <item name="shapeAppearanceSmallComponent">@style/MyShapeAppearanceSmallComponent</item>
         <item name="bottomAppBarStyle">@style/BlueThemeAppBarStyle</item>
         <item name="tabStyle">@style/BlueTabStyle</item>
-
 
 
     </style>
@@ -79,8 +74,6 @@
 
         <item name="colorSurface">#3F6B04</item><!--цвет чипов  -->
         <item name="colorOnSurface">#3F6B04</item><!--цвет текста   -->
-
-
 
 
         <item name="shapeAppearanceSmallComponent">@style/MyShapeAppearanceSmallComponent</item>
@@ -114,12 +107,12 @@
     </style>
 
 
-
     <style name="MyTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
 
         <item name="helperTextTextColor">@color/helperTextColor</item>
         <item name="counterOverflowTextColor">@color/helperTextColor</item>
     </style>
+
     <style name="BlueTabStyle" parent="Widget.Material3.TabLayout">
         <item name="tabIndicatorFullWidth">true</item>
         <item name="tabIndicatorColor">@color/BlueTabIndicatorColor</item>
@@ -132,8 +125,9 @@
     </style>
 
 
-    <style name="SplashTheme" parent = "GreenTheme">
+    <style name="SplashTheme" parent="GreenTheme">
         <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name = "android:statusBarColor">@color/white</item>
 
     </style>
 </resources>
