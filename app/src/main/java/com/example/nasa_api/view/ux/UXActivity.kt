@@ -34,6 +34,8 @@ class UXActivity: AppCompatActivity() {
 
     private fun navigateTo(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
+
     }
+
 
 }
