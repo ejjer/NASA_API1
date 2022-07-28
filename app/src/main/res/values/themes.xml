@@ -130,4 +130,10 @@
         <item name="tabIndicatorColor">@color/GreenTabIndicatorColor</item>
         <item name="tabTextColor">@color/GreenTabIndicatorColor</item>
     </style>
+
+
+    <style name="SplashTheme" parent = "GreenTheme">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+
+    </style>
 </resources>
